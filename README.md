@@ -14,7 +14,7 @@ Tự động cập nhật dữ liệu bảng Statistic của hệ thống SafeZo
 
 ### 2. Cài đặt dữ án
 #### Bước 1: Tải mã nguồn từ bản phát hành
-1. Truy cập trang phát hành chính thức tại: [Releases](https://github.com/OlympicThuyLoi2024/ChatBot/releases).
+1. Truy cập trang phát hành chính thức tại: [Releases](https://github.com/OlympicThuyLoi2024/AutoUpdateData/releases).
 2. Chọn phiên bản phù hợp với nhu cầu của bạn.
 3. Trong phần **Assets**, tải tệp:
    - `Source code (zip)` hoặc
