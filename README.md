@@ -23,12 +23,12 @@ Tự động cập nhật dữ liệu bảng Statistic của hệ thống SafeZo
 #### Bước 2: Giải nén và truy cập thư mục
 ```bash
 # Giải nén file đã tải
-unzip ChatBot-1.0.zip
-cd ChatBot-1.0
+unzip AutoUpdateData-1.0.zip
+cd AutoUpdateData-1.0
 ```
 #### Bước 3: Import vô N8N 
 1. Tạo 1 workflow trong N8N
-2. Import file Agent.json, file này lấy được ở trong thư mục ChatBot-1.0
+2. Import file Agent.json, file này lấy được ở trong thư mục AutoUpdateData-1.0
 
 ## Đóng góp cho dự án
 
