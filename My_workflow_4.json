@@ -1,0 +1,126 @@
+{
+  "name": "My workflow 4",
+  "license": "GNU/GPL version 3.0",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "http://14.225.218.213:1337/api/statistics",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "filters[date][$eq]",
+              "value": "={{ $json.yesterday }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6b69d1dd-eb52-4cf5-b77f-2002dbe17346",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1280,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const today = new Date();\nconst yesterday = new Date(today);\nyesterday.setDate(today.getDate() - 1);\n\nconst formatDate = (date) => {\n  const year = date.getFullYear();\n  const month = String(date.getMonth() + 1).padStart(2, '0');\n  const day = String(date.getDate()).padStart(2, '0');\n  return `${year}-${month}-${day}`;\n}\n\nreturn [\n  {\n    json: {\n      yesterday: formatDate(yesterday),\n      today: formatDate(today),\n    }\n  }\n];\n"
+      },
+      "id": "6df9515c-bcc7-47f0-b72a-7863754ab001",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1060,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://14.225.218.213:1337/api/statistics",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"data\": {\n    \"SoCaMacMoi\": 0,\n    \"SoCaTuVong\": 0,\n    \"SoCaDaChuaKhoi\": 0,\n    \"cases\": {{ $json.data[0].cases }},\n    \"TongSoCaDaChuaKhoi\": {{ $json.data[0].TongSoCaDaChuaKhoi }},\n    \"TongSoCaTuVong\": {{ $json.data[0].TongSoCaTuVong }},\n    \"date\": \"{{ $('Code').item.json.today }}\"\n  }\n}",
+        "options": {}
+      },
+      "id": "ec4c179d-0e6d-4abb-bcdc-83fc3e7c4628",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1500,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "id": "01623277-546e-4abf-a286-aed7ba0cd0ba",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        880,
+        360
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "035c4700-b640-48e2-9754-a1e9104c6ef8",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "43d2ae87ffc3fbd818ed54a23030d81cce9e8e475e02bdb5227c40550866fbf9"
+  },
+  "id": "DwHKEyywotOoSjHP",
+  "tags": []
+}
