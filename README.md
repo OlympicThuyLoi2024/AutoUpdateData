@@ -32,7 +32,7 @@ cd ChatBot-1.0
 
 ## Đóng góp cho dự án
 
-<a href="https://github.com/OlympicThuyLoi2024/ChatBot/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=BUG">Bug Report ⚠️
+<a href="https://github.com/OlympicThuyLoi2024/AutoUpdateData/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=BUG">Bug Report ⚠️
 </a>
 
 <a href="https://github.com/OlympicThuyLoi2024/ChatBot/issues/new?assignees=&labels=&projects=&template=feature_template.md&title=Feature">Request Feature 👩‍💻</a>
