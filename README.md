@@ -28,7 +28,7 @@ cd AutoUpdateData-1.0
 ```
 #### Bước 3: Import vô N8N 
 1. Tạo 1 workflow trong N8N
-2. Import file Agent.json, file này lấy được ở trong thư mục AutoUpdateData-1.0
+2. Import file My_workflow_4.json vô workflow trên, file này lấy được ở trong thư mục AutoUpdateData-1.0
 
 ## Đóng góp cho dự án
 
